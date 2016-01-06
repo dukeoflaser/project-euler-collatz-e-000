@@ -1,7 +1,3 @@
-require 'pry'
-require 'pry-nav'
-
-
 def even_next(n)
   n = n / 2
 end
@@ -28,25 +24,20 @@ end
 
 def  longest_collatz(max=999999)
   
-  # checked = []
   longest_seen_sequence = 0
   largest_starting_number = 0
   
   until max <= 1
-  # binding.pry
-    # unless checked.include?(max)
-      sequence = collatz(max)
-      # checked.push(*sequence)
-      # checked.uniq!
-      sequence_length = sequence.length
-    
-      if sequence_length > longest_seen_sequence
-        longest_seen_sequence = sequence_length
-        largest_starting_number = max
-      end
-    # end
+  
+    sequence = collatz(max)
+    sequence_length = sequence.length
+  
+    if sequence_length > longest_seen_sequence
+      longest_seen_sequence = sequence_length
+      largest_starting_number = max
+    end
       
-  max -= 1
+    max -= 1
   end
 
   largest_starting_number
